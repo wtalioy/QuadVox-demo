@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuadVox Benchmark – Audio Samples</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #1e293b;
+      background: #f8fafc;
+      line-height: 1.6;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+    }
+    .site-header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .site-header .tagline {
+      font-size: 1.15rem;
+      font-weight: 400;
+      opacity: 0.85;
+      max-width: 640px;
+      margin: 0 auto 1.5rem;
+    }
+    .header-links {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .header-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.5rem 1.1rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .header-links a:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ── Main ── */
+    .main { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+    /* ── Section ── */
+    .category {
+      margin-bottom: 3rem;
+    }
+    .category-title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 0.25rem;
+    }
+    .category-desc {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Sample Grid ── */
+    .samples-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── Card ── */
+    .sample-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .sample-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .sample-card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+    .sample-card .subset-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    .tag-scripted   { background: #dbeafe; color: #1e40af; }
+    .tag-spontaneous { background: #fef3c7; color: #92400e; }
+    .tag-realworld  { background: #fce7f3; color: #9d174d; }
+
+    /* ── Player Row ── */
+    .player-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.65rem;
+    }
+    .player-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      width: 3.2rem;
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .label-real { color: #16a34a; }
+    .label-fake { color: #dc2626; }
+
+    audio {
+      flex: 1;
+      height: 36px;
+      min-width: 0;
+    }
+    /* Slightly reduce native player chrome */
+    audio::-webkit-media-controls-panel { background: #f1f5f9; border-radius: 6px; }
+
+    /* ── Footer ── */
+    .site-footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+    .site-footer a { color: #64748b; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .site-header h1 { font-size: 1.7rem; }
+      .samples-grid { grid-template-columns: 1fr; }
+      .sample-card { padding: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <h1>QuadVox Benchmark</h1>
+    <p class="tagline">
+      A 392-hour multilingual benchmark for robust audio deepfake detection, evaluated across four aspects: speech style, emotional prosody, acoustic environment, and manipulation type.
+    </p>
+    <div class="header-links">
+      <a href="https://github.com/wtalioy/QuadVox">GitHub</a>
+      <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- ═══════════ Scripted ═══════════ -->
+    <section class="category">
+      <h2 class="category-title">Scripted Speech</h2>
+      <p class="category-desc">Clean, read speech from audiobooks and news broadcasts.</p>
+      <div class="samples-grid">
+
+        <div class="sample-card">
+          <h3>Audiobook</h3>
+          <span class="subset-tag tag-scripted">Scripted · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/scripted/audiobook_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/scripted/audiobook_fake.wav"></audio>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <h3>News</h3>
+          <span class="subset-tag tag-scripted">Scripted · Chinese</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/scripted/news_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/scripted/news_fake.wav"></audio>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ Spontaneous ═══════════ -->
+    <section class="category">
+      <h2 class="category-title">Spontaneous Speech</h2>
+      <p class="category-desc">Conversational audio from podcasts, interviews, and phone calls.</p>
+      <div class="samples-grid">
+
+        <div class="sample-card">
+          <h3>Podcast</h3>
+          <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/spontaneous/podcast_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/spontaneous/podcast_fake.wav"></audio>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <h3>Interview</h3>
+          <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/spontaneous/interview_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/spontaneous/interview_fake.wav"></audio>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <h3>Phone Call</h3>
+          <span class="subset-tag tag-spontaneous">Spontaneous · English/Chinese</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/spontaneous/phonecall_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/spontaneous/phonecall_fake.wav"></audio>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ Real-World ═══════════ -->
+    <section class="category">
+      <h2 class="category-title">Real-World Speech</h2>
+      <p class="category-desc">Challenging audio with background noise, reverberation, and music — from public speeches, public figures, and movie clips.</p>
+      <div class="samples-grid">
+
+        <div class="sample-card">
+          <h3>Movie</h3>
+          <span class="subset-tag tag-realworld">Real-World · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/real_world/movie_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/real_world/movie_fake.wav"></audio>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <h3>Public Speech</h3>
+          <span class="subset-tag tag-realworld">Real-World · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/real_world/publicspeech_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/real_world/publicspeech_fake.wav"></audio>
+          </div>
+        </div>
+
+        <div class="sample-card">
+          <h3>Public Figure</h3>
+          <span class="subset-tag tag-realworld">Real-World · English</span>
+          <div class="player-row">
+            <span class="player-label label-real">Real</span>
+            <audio controls preload="none" src="audio/real_world/publicfigure_real.wav"></audio>
+          </div>
+          <div class="player-row">
+            <span class="player-label label-fake">Fake</span>
+            <audio controls preload="none" src="audio/real_world/publicfigure_fake.wav"></audio>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2025 QuadVox &middot;
+    <a href="https://github.com/wtalioy/QuadVox">GitHub</a> &middot;
+    <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
+  </footer>
+
+</body>
+</html>
