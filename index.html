@@ -1,318 +1,802 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QuadVox Benchmark – Audio Samples</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* ── Reset & Base ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuadVox Benchmark – Audio Samples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & Base ── */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      color: #1e293b;
-      background: #f8fafc;
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            color: #1e293b;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
 
-    /* ── Header ── */
-    .site-header {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      padding: 3.5rem 1.5rem 3rem;
-      text-align: center;
-    }
-    .site-header h1 {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-    .site-header .tagline {
-      font-size: 1.15rem;
-      font-weight: 400;
-      opacity: 0.85;
-      max-width: 640px;
-      margin: 0 auto 1.5rem;
-    }
-    .header-links {
-      display: flex;
-      gap: 1.2rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .header-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      padding: 0.5rem 1.1rem;
-      border: 1px solid rgba(255,255,255,0.3);
-      border-radius: 6px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .header-links a:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(255,255,255,0.6);
-    }
+        /* ── Header ── */
+        .site-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #fff;
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+        }
 
-    /* ── Main ── */
-    .main { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+        .site-header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
 
-    /* ── Section ── */
-    .category {
-      margin-bottom: 3rem;
-    }
-    .category-title {
-      font-size: 1.55rem;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 0.25rem;
-    }
-    .category-desc {
-      font-size: 0.95rem;
-      color: #64748b;
-      margin-bottom: 1.5rem;
-    }
+        .site-header .tagline {
+            font-size: 1.15rem;
+            font-weight: 400;
+            opacity: 0.85;
+            max-width: 640px;
+            margin: 0 auto 1.5rem;
+        }
 
-    /* ── Sample Grid ── */
-    .samples-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
+        .header-links {
+            display: flex;
+            gap: 1.2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-    /* ── Card ── */
-    .sample-card {
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: box-shadow 0.2s;
-    }
-    .sample-card:hover {
-      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    }
-    .sample-card h3 {
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-    .sample-card .subset-tag {
-      display: inline-block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      margin-bottom: 1rem;
-    }
-    .tag-scripted   { background: #dbeafe; color: #1e40af; }
-    .tag-spontaneous { background: #fef3c7; color: #92400e; }
-    .tag-realworld  { background: #fce7f3; color: #9d174d; }
+        .header-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            padding: 0.5rem 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            transition: background 0.2s, border-color 0.2s;
+        }
 
-    /* ── Player Row ── */
-    .player-row {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.65rem;
-    }
-    .player-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      width: 3.2rem;
-      flex-shrink: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .label-real { color: #16a34a; }
-    .label-fake { color: #dc2626; }
+        .header-links a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
 
-    audio {
-      flex: 1;
-      height: 36px;
-      min-width: 0;
-    }
-    /* Slightly reduce native player chrome */
-    audio::-webkit-media-controls-panel { background: #f1f5f9; border-radius: 6px; }
+        /* ── Section Nav ── */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.6rem 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
 
-    /* ── Footer ── */
-    .site-footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.85rem;
-      color: #94a3b8;
-      border-top: 1px solid #e2e8f0;
-    }
-    .site-footer a { color: #64748b; text-decoration: none; }
-    .site-footer a:hover { text-decoration: underline; }
+        .section-nav a {
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #64748b;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
 
-    /* ── Responsive ── */
-    @media (max-width: 640px) {
-      .site-header h1 { font-size: 1.7rem; }
-      .samples-grid { grid-template-columns: 1fr; }
-      .sample-card { padding: 1.2rem; }
-    }
-  </style>
+        .section-nav a:hover {
+            color: #1e293b;
+            background: #f1f5f9;
+        }
+
+        .section-nav a.active {
+            color: #6d28d9;
+            background: #ede9fe;
+            border-color: #c4b5fd;
+        }
+
+        /* ── Main ── */
+        .main {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* ── Aspect (top-level) ── */
+        .aspect {
+            margin-bottom: 3.5rem;
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .aspect.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .aspect-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 0.3rem;
+        }
+
+        .aspect-desc {
+            font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+        }
+
+        /* ── Sub-category (within Speech Style) ── */
+        .subcategory {
+            margin-bottom: 2rem;
+        }
+
+        .subcategory-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.2rem;
+        }
+
+        .subcategory-desc {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        /* ── Sample Grid ── */
+        .samples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── Card ── */
+        .sample-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .sample-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .sample-card.playing {
+            border-color: #6d28d9;
+            box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.15), 0 4px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .sample-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .sample-card .subset-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.55rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .tag-scripted {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .tag-spontaneous {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .tag-realworld {
+            background: #fce7f3;
+            color: #9d174d;
+        }
+
+        .tag-emotion {
+            background: #ede9fe;
+            color: #5b21b6;
+        }
+
+        .tag-acoustic {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .tag-manipulation {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .label-clean {
+            color: #0284c7;
+        }
+
+        .label-noisy {
+            color: #d97706;
+        }
+
+        /* ── Transcript ── */
+        .transcript-box {
+            background: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin-top: 0.75rem;
+        }
+
+        .transcript-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.6rem;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .transcript-header h4 {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .reveal-btn {
+            background: #6d28d9;
+            color: #fff;
+            border: none;
+            padding: 0.35rem 0.85rem;
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .reveal-btn:hover {
+            background: #5b21b6;
+        }
+
+        .transcript-text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #334155;
+        }
+
+        .synthetic-word {
+            transition: all 0.3s ease;
+        }
+
+        .synthetic-word.revealed {
+            color: #dc2626;
+            font-weight: 700;
+            background: rgba(220, 38, 38, 0.08);
+            padding: 1px 3px;
+            border-radius: 3px;
+        }
+
+        /* ── Player Row ── */
+        .player-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.65rem;
+        }
+
+        .player-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            width: 3.2rem;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .label-real {
+            color: #16a34a;
+        }
+
+        .label-fake {
+            color: #dc2626;
+        }
+
+        audio {
+            flex: 1;
+            height: 36px;
+        }
+
+        /* ── Blind test ── */
+        .blind-card .player-label {
+            color: #64748b;
+        }
+
+        .blind-card.revealed-real .player-label {
+            color: #16a34a;
+        }
+
+        .blind-card.revealed-fake .player-label {
+            color: #dc2626;
+        }
+
+        .blind-result {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: #334155;
+            min-height: 1.5em;
+        }
+
+        .guess-btns {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            margin-top: 0;
+        }
+
+        .blind-interact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1.5rem;
+            padding: 1.2rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .guess-btn {
+            padding: 0.45rem 1.3rem;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            background: #fff;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .guess-btn:hover {
+            border-color: #6d28d9;
+            color: #6d28d9;
+        }
+
+        .guess-btn:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        .guess-btn.correct {
+            background: #dcfce7;
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+
+        .guess-btn.wrong {
+            background: #fee2e2;
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        /* ── Footer ── */
+        .site-footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .site-footer a {
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        .site-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 640px) {
+            .site-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .samples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sample-card {
+                padding: 1.2rem;
+            }
+
+            .section-nav {
+                gap: 0.3rem;
+            }
+
+            .section-nav a {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.65rem;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- Header -->
-  <header class="site-header">
-    <h1>QuadVox Benchmark</h1>
-    <p class="tagline">
-      A 392-hour multilingual benchmark for robust audio deepfake detection, evaluated across four aspects: speech style, emotional prosody, acoustic environment, and manipulation type.
-    </p>
-    <div class="header-links">
-      <a href="https://github.com/wtalioy/QuadVox">GitHub</a>
-      <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
-    </div>
-  </header>
+    <!-- Header -->
+    <header class="site-header">
+        <h1>QuadVox Benchmark</h1>
+        <p class="tagline">A 392-hour multilingual benchmark for robust audio deepfake detection, evaluated across four
+            aspects: speech style, emotional prosody, acoustic environment, and manipulation type.</p>
+        <!-- <div class="header-links">
+            <a href="https://github.com/wtalioy/QuadVox">GitHub</a>
+            <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
+        </div> -->
+    </header>
 
-  <main class="main">
+    <!-- Section Nav -->
+    <nav class="section-nav" id="section-nav">
+        <a href="#speech-style">Speech Style</a>
+        <a href="#emotion">Emotional Prosody</a>
+        <a href="#acoustic">Acoustic Environment</a>
+        <a href="#manipulation">Manipulation Type</a>
+    </nav>
 
-    <!-- ═══════════ Scripted ═══════════ -->
-    <section class="category">
-      <h2 class="category-title">Scripted Speech</h2>
-      <p class="category-desc">Clean, read speech from audiobooks and news broadcasts.</p>
-      <div class="samples-grid">
+    <main class="main">
 
-        <div class="sample-card">
-          <h3>Audiobook</h3>
-          <span class="subset-tag tag-scripted">Scripted · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/scripted/audiobook_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/scripted/audiobook_fake.wav"></audio>
-          </div>
-        </div>
+        <!-- ═══════════ Aspect 1: Speech Style ═══════════ -->
+        <section class="aspect" id="speech-style">
+            <h2 class="aspect-title">Speech Style</h2>
+            <p class="aspect-desc">Generalization across different speech styles — from clean read speech to noisy
+                real-world recordings.</p>
 
-        <div class="sample-card">
-          <h3>News</h3>
-          <span class="subset-tag tag-scripted">Scripted · Chinese</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/scripted/news_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/scripted/news_fake.wav"></audio>
-          </div>
-        </div>
+            <!-- ── Scripted ── -->
+            <div class="subcategory" id="scripted">
+                <h3 class="subcategory-title">Scripted</h3>
+                <p class="subcategory-desc">Clean, read speech from audiobooks and news broadcasts.</p>
+                <div class="samples-grid">
 
-      </div>
-    </section>
+                    <div class="sample-card">
+                        <h3>Audiobook</h3>
+                        <span class="subset-tag tag-scripted">Scripted · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/scripted/audiobook_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/scripted/audiobook_fake.wav"></audio>
+                        </div>
+                    </div>
 
-    <!-- ═══════════ Spontaneous ═══════════ -->
-    <section class="category">
-      <h2 class="category-title">Spontaneous Speech</h2>
-      <p class="category-desc">Conversational audio from podcasts, interviews, and phone calls.</p>
-      <div class="samples-grid">
+                    <div class="sample-card">
+                        <h3>News</h3>
+                        <span class="subset-tag tag-scripted">Scripted · Chinese</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/scripted/news_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/scripted/news_fake.wav"></audio>
+                        </div>
+                    </div>
 
-        <div class="sample-card">
-          <h3>Podcast</h3>
-          <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/spontaneous/podcast_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/spontaneous/podcast_fake.wav"></audio>
-          </div>
-        </div>
+                </div>
+            </div>
 
-        <div class="sample-card">
-          <h3>Interview</h3>
-          <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/spontaneous/interview_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/spontaneous/interview_fake.wav"></audio>
-          </div>
-        </div>
+            <!-- ── Spontaneous ── -->
+            <div class="subcategory" id="spontaneous">
+                <h3 class="subcategory-title">Spontaneous</h3>
+                <p class="subcategory-desc">Conversational audio from podcasts, interviews, and phone calls.</p>
+                <div class="samples-grid">
 
-        <div class="sample-card">
-          <h3>Phone Call</h3>
-          <span class="subset-tag tag-spontaneous">Spontaneous · English/Chinese</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/spontaneous/phonecall_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/spontaneous/phonecall_fake.wav"></audio>
-          </div>
-        </div>
+                    <div class="sample-card">
+                        <h3>Podcast</h3>
+                        <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/spontaneous/podcast_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/spontaneous/podcast_fake.wav"></audio>
+                        </div>
+                    </div>
 
-      </div>
-    </section>
+                    <div class="sample-card">
+                        <h3>Interview</h3>
+                        <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/spontaneous/interview_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/spontaneous/interview_fake.wav"></audio>
+                        </div>
+                    </div>
 
-    <!-- ═══════════ Real-World ═══════════ -->
-    <section class="category">
-      <h2 class="category-title">Real-World Speech</h2>
-      <p class="category-desc">Challenging audio with background noise, reverberation, and music — from public speeches, public figures, and movie clips.</p>
-      <div class="samples-grid">
+                    <div class="sample-card">
+                        <h3>Phone Call</h3>
+                        <span class="subset-tag tag-spontaneous">Spontaneous · English/Chinese</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/spontaneous/phonecall_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/spontaneous/phonecall_fake.wav"></audio>
+                        </div>
+                    </div>
 
-        <div class="sample-card">
-          <h3>Movie</h3>
-          <span class="subset-tag tag-realworld">Real-World · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/real_world/movie_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/real_world/movie_fake.wav"></audio>
-          </div>
-        </div>
+                </div>
+            </div>
 
-        <div class="sample-card">
-          <h3>Public Speech</h3>
-          <span class="subset-tag tag-realworld">Real-World · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/real_world/publicspeech_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/real_world/publicspeech_fake.wav"></audio>
-          </div>
-        </div>
+            <!-- ── Real-World ── -->
+            <div class="subcategory" id="real-world">
+                <h3 class="subcategory-title">Real-World</h3>
+                <p class="subcategory-desc">Challenging audio with background noise, reverberation, and music — from
+                    public speeches, public figures, and movie clips.</p>
+                <div class="samples-grid">
 
-        <div class="sample-card">
-          <h3>Public Figure</h3>
-          <span class="subset-tag tag-realworld">Real-World · English</span>
-          <div class="player-row">
-            <span class="player-label label-real">Real</span>
-            <audio controls preload="none" src="audio/real_world/publicfigure_real.wav"></audio>
-          </div>
-          <div class="player-row">
-            <span class="player-label label-fake">Fake</span>
-            <audio controls preload="none" src="audio/real_world/publicfigure_fake.wav"></audio>
-          </div>
-        </div>
+                    <div class="sample-card">
+                        <h3>Movie</h3>
+                        <span class="subset-tag tag-realworld">Real-World · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/real_world/movie_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/real_world/movie_fake.wav"></audio>
+                        </div>
+                    </div>
 
-      </div>
-    </section>
+                    <div class="sample-card">
+                        <h3>Public Speech</h3>
+                        <span class="subset-tag tag-realworld">Real-World · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/real_world/publicspeech_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/real_world/publicspeech_fake.wav"></audio>
+                        </div>
+                    </div>
 
-  </main>
+                    <div class="sample-card">
+                        <h3>Public Figure</h3>
+                        <span class="subset-tag tag-realworld">Real-World · English</span>
+                        <div class="player-row">
+                            <span class="player-label label-real">Real</span>
+                            <audio controls preload="none" src="audio/real_world/publicfigure_real.wav"></audio>
+                        </div>
+                        <div class="player-row">
+                            <span class="player-label label-fake">Fake</span>
+                            <audio controls preload="none" src="audio/real_world/publicfigure_fake.wav"></audio>
+                        </div>
+                    </div>
 
-  <footer class="site-footer">
-    &copy; 2025 QuadVox &middot;
-    <a href="https://github.com/wtalioy/QuadVox">GitHub</a> &middot;
-    <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
-  </footer>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══════════ Aspect 2: Emotional Prosody ═══════════ -->
+        <section class="aspect" id="emotion">
+            <h2 class="aspect-title">Emotional Prosody</h2>
+            <p class="aspect-desc">Speech with clear emotional states (e.g., anger), synthesized using dedicated
+                expressive TTS models like F5TTS. <strong>Can you tell which is real?</strong></p>
+            <div class="samples-grid" id="blind-test-grid">
+
+                <div class="sample-card blind-card" id="blind-a">
+                    <h3>Sample A</h3>
+                    <span class="subset-tag tag-emotion">Emotion · English</span>
+                    <div class="player-row">
+                        <span class="player-label">Listen</span>
+                        <audio controls preload="none"></audio>
+                    </div>
+                </div>
+
+                <div class="sample-card blind-card" id="blind-b">
+                    <h3>Sample B</h3>
+                    <span class="subset-tag tag-emotion">Emotion · English</span>
+                    <div class="player-row">
+                        <span class="player-label">Listen</span>
+                        <audio controls preload="none"></audio>
+                    </div>
+                </div>
+
+            </div>
+            <div class="blind-interact">
+                <div class="guess-btns" id="guess-btns">
+                    <button class="guess-btn" data-guess="a">A is Real</button>
+                    <button class="guess-btn" data-guess="b">B is Real</button>
+                </div>
+                <div class="blind-result" id="blind-result"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════ Aspect 3: Acoustic Environment ═══════════ -->
+        <section class="aspect" id="acoustic">
+            <h2 class="aspect-title">Acoustic Environment</h2>
+            <p class="aspect-desc">The same deepfake under clean vs. noisy conditions — background noise masks
+                synthetic artifacts and degrades detector performance.</p>
+            <div class="samples-grid">
+
+                <div class="sample-card">
+                    <h3>Clean vs. Noisy</h3>
+                    <span class="subset-tag tag-acoustic">Acoustic · Deepfake</span>
+                    <div class="player-row">
+                        <span class="player-label label-clean">Clean</span>
+                        <audio controls preload="none" src="audio/noise_clean.wav"></audio>
+                    </div>
+                    <div class="player-row">
+                        <span class="player-label label-noisy">Noisy</span>
+                        <audio controls preload="none" src="audio/noise_traffic.wav"></audio>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════ Aspect 4: Manipulation Type ═══════════ -->
+        <section class="aspect" id="manipulation">
+            <h2 class="aspect-title">Manipulation Type</h2>
+            <p class="aspect-desc">Partial fakes splice a few synthetic words into real speech — a "needle in a
+                haystack" challenge for detectors.</p>
+            <div class="samples-grid">
+
+                <div class="sample-card">
+                    <h3>Partial Fake</h3>
+                    <span class="subset-tag tag-manipulation">Partial Fake · English</span>
+                    <div class="player-row">
+                        <span class="player-label label-fake">Audio</span>
+                        <audio controls preload="none" src="audio/partial_clip.wav"></audio>
+                    </div>
+                    <div class="transcript-box">
+                        <div class="transcript-header">
+                            <h4>Transcript</h4>
+                            <button class="reveal-btn" id="reveal-btn">Reveal Synthetic Words</button>
+                        </div>
+                        <p class="transcript-text">
+                            ... suppose they arrive and they <span class="synthetic-word">give you a box, and</span>
+                            the box has two knobs one knob
+                            is the knob for controlling global temperature maybe another knob is a knob for
+                            controlling ...
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        QuadVox Benchmark · <a href="https://github.com/wtalioy/QuadVox">GitHub</a> · <a
+            href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
+    </footer>
+
+    <script>
+        (function () {
+            // ── Exclusive playback: only one audio plays at a time ──
+            const allAudio = document.querySelectorAll('audio');
+            allAudio.forEach(a => {
+                a.addEventListener('play', () => {
+                    allAudio.forEach(other => { if (other !== a) other.pause(); });
+                    document.querySelectorAll('.sample-card').forEach(c => c.classList.remove('playing'));
+                    const card = a.closest('.sample-card');
+                    if (card) card.classList.add('playing');
+                });
+                a.addEventListener('pause', () => {
+                    const card = a.closest('.sample-card');
+                    if (card && a.paused) card.classList.remove('playing');
+                });
+                a.addEventListener('ended', () => {
+                    const card = a.closest('.sample-card');
+                    if (card) card.classList.remove('playing');
+                });
+            });
+
+            // ── Scroll-spy for section nav ──
+            const navLinks = document.querySelectorAll('.section-nav a');
+            const sections = document.querySelectorAll('.aspect[id]');
+            const navHeight = document.querySelector('.section-nav').offsetHeight + 16;
+
+            // Smooth scroll
+            navLinks.forEach(link => {
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const target = document.querySelector(link.getAttribute('href'));
+                    if (target) window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
+                });
+            });
+
+            function updateActiveNav() {
+                let current = '';
+                sections.forEach(s => {
+                    if (window.scrollY >= s.offsetTop - navHeight - 40) current = s.id;
+                });
+                navLinks.forEach(l => {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+                });
+            }
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
+
+            // ── Scroll reveal ──
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.12 });
+            document.querySelectorAll('.aspect').forEach(s => observer.observe(s));
+
+            // ── Blind test (Emotion) ──
+            const realSrc = 'audio/emotion_real.wav';
+            const fakeSrc = 'audio/emotion_fake.wav';
+            const order = Math.random() < 0.5 ? ['real', 'fake'] : ['fake', 'real'];
+            const cardA = document.getElementById('blind-a');
+            const cardB = document.getElementById('blind-b');
+            cardA.querySelector('audio').src = order[0] === 'real' ? realSrc : fakeSrc;
+            cardB.querySelector('audio').src = order[1] === 'real' ? realSrc : fakeSrc;
+            const realIs = order[0] === 'real' ? 'a' : 'b';
+
+            document.querySelectorAll('.guess-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const guess = this.dataset.guess;
+                    const correct = guess === realIs;
+                    document.querySelectorAll('.guess-btn').forEach(b => {
+                        b.disabled = true;
+                        if (b.dataset.guess === realIs) b.classList.add('correct');
+                        else b.classList.add('wrong');
+                    });
+                    const rCard = realIs === 'a' ? cardA : cardB;
+                    const fCard = realIs === 'a' ? cardB : cardA;
+                    rCard.classList.add('revealed-real');
+                    fCard.classList.add('revealed-fake');
+                    rCard.querySelector('h3').textContent = (realIs === 'a' ? 'Sample A' : 'Sample B') + ' — Real';
+                    fCard.querySelector('h3').textContent = (realIs === 'a' ? 'Sample B' : 'Sample A') + ' — Fake (F5TTS)';
+                    rCard.querySelector('.player-label').textContent = 'Real';
+                    fCard.querySelector('.player-label').textContent = 'Fake';
+                    document.getElementById('blind-result').textContent = correct
+                        ? '✓ Correct! Detectors often fail on expressive emotional fakes like this.'
+                        : '✗ Wrong! The synthetic prosody is convincingly close to real anger.';
+                });
+            });
+
+            // ── Transcript reveal ──
+            document.getElementById('reveal-btn').addEventListener('click', function () {
+                const words = document.querySelectorAll('.synthetic-word');
+                const revealed = words[0] && words[0].classList.contains('revealed');
+                words.forEach(w => w.classList.toggle('revealed', !revealed));
+                this.textContent = revealed ? 'Reveal Synthetic Words' : 'Hide Synthetic Words';
+            });
+        })();
+    </script>
 
 </body>
+
 </html>
