@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ── Reset & Base ── */
         *,
         *::before,
         *::after {
@@ -24,7 +23,6 @@
             line-height: 1.6;
         }
 
-        /* ── Header ── */
         .site-header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #fff;
@@ -47,30 +45,6 @@
             margin: 0 auto 1.5rem;
         }
 
-        .header-links {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .header-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 500;
-            padding: 0.5rem 1.1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 6px;
-            transition: background 0.2s, border-color 0.2s;
-        }
-
-        .header-links a:hover {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* ── Section Nav ── */
         .section-nav {
             position: sticky;
             top: 0;
@@ -107,14 +81,12 @@
             border-color: #c4b5fd;
         }
 
-        /* ── Main ── */
         .main {
-            max-width: 1080px;
+            max-width: 1120px;
             margin: 0 auto;
             padding: 2.5rem 1.5rem 4rem;
         }
 
-        /* ── Aspect (top-level) ── */
         .aspect {
             margin-bottom: 3.5rem;
             opacity: 0;
@@ -140,9 +112,8 @@
             margin-bottom: 1.5rem;
         }
 
-        /* ── Sub-category (within Speech Style) ── */
         .subcategory {
-            margin-bottom: 2rem;
+            margin-bottom: 2.2rem;
         }
 
         .subcategory-title {
@@ -158,19 +129,30 @@
             margin-bottom: 1rem;
         }
 
-        /* ── Sample Grid ── */
+        .subset-heading {
+            font-size: 1.02rem;
+            font-weight: 600;
+            color: #475569;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .subset-group {
+            margin-bottom: 1.8rem;
+        }
+
         .samples-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
+            gap: 1.2rem;
         }
 
-        /* ── Card ── */
         .sample-card {
             background: #fff;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
-            padding: 1.5rem;
+            padding: 1.25rem 1.4rem;
             transition: box-shadow 0.2s;
         }
 
@@ -183,21 +165,15 @@
             box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.15), 0 4px 20px rgba(0, 0, 0, 0.07);
         }
 
-        .sample-card h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.15rem;
-        }
-
-        .sample-card .subset-tag {
+        .subset-tag {
             display: inline-block;
-            font-size: 0.78rem;
+            font-size: 0.72rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.04em;
-            padding: 0.2rem 0.55rem;
+            padding: 0.18rem 0.5rem;
             border-radius: 4px;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .tag-scripted {
@@ -230,6 +206,34 @@
             color: #991b1b;
         }
 
+        .player-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .player-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .player-label {
+            font-size: 0.78rem;
+            font-weight: 600;
+            width: 2.8rem;
+            flex-shrink: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .label-real {
+            color: #16a34a;
+        }
+
+        .label-fake {
+            color: #dc2626;
+        }
+
         .label-clean {
             color: #0284c7;
         }
@@ -238,7 +242,12 @@
             color: #d97706;
         }
 
-        /* ── Transcript ── */
+        audio {
+            flex: 1;
+            height: 36px;
+            min-width: 0;
+        }
+
         .transcript-box {
             background: #f1f5f9;
             border-radius: 8px;
@@ -295,37 +304,6 @@
             border-radius: 3px;
         }
 
-        /* ── Player Row ── */
-        .player-row {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            margin-bottom: 0.65rem;
-        }
-
-        .player-label {
-            font-size: 0.82rem;
-            font-weight: 600;
-            width: 3.2rem;
-            flex-shrink: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-        }
-
-        .label-real {
-            color: #16a34a;
-        }
-
-        .label-fake {
-            color: #dc2626;
-        }
-
-        audio {
-            flex: 1;
-            height: 36px;
-        }
-
-        /* ── Blind test ── */
         .blind-card .player-label {
             color: #64748b;
         }
@@ -351,7 +329,6 @@
             display: flex;
             gap: 0.75rem;
             justify-content: center;
-            margin-top: 0;
         }
 
         .blind-interact {
@@ -398,7 +375,6 @@
             color: #dc2626;
         }
 
-        /* ── Footer ── */
         .site-footer {
             text-align: center;
             padding: 2rem 1rem;
@@ -416,7 +392,6 @@
             text-decoration: underline;
         }
 
-        /* ── Responsive ── */
         @media (max-width: 640px) {
             .site-header h1 {
                 font-size: 1.7rem;
@@ -427,7 +402,7 @@
             }
 
             .sample-card {
-                padding: 1.2rem;
+                padding: 1rem 1.1rem;
             }
 
             .section-nav {
@@ -444,18 +419,12 @@
 
 <body>
 
-    <!-- Header -->
     <header class="site-header">
         <h1>QuadVox Benchmark</h1>
         <p class="tagline">A 392-hour multilingual benchmark for robust audio deepfake detection, evaluated across four
             aspects: speech style, emotional prosody, acoustic environment, and manipulation type.</p>
-        <!-- <div class="header-links">
-            <a href="https://github.com/wtalioy/QuadVox">GitHub</a>
-            <a href="https://huggingface.co/datasets/Lioy/QuadVoxBench">Dataset</a>
-        </div> -->
     </header>
 
-    <!-- Section Nav -->
     <nav class="section-nav" id="section-nav">
         <a href="#speech-style">Speech Style</a>
         <a href="#emotion">Emotional Prosody</a>
@@ -465,171 +434,34 @@
 
     <main class="main">
 
-        <!-- ═══════════ Aspect 1: Speech Style ═══════════ -->
         <section class="aspect" id="speech-style">
             <h2 class="aspect-title">Speech Style</h2>
             <p class="aspect-desc">Generalization across different speech styles — from clean read speech to noisy
                 real-world recordings.</p>
-
-            <!-- ── Scripted ── -->
-            <div class="subcategory" id="scripted">
-                <h3 class="subcategory-title">Scripted</h3>
-                <p class="subcategory-desc">Clean, read speech from audiobooks and news broadcasts.</p>
-                <div class="samples-grid">
-
-                    <div class="sample-card">
-                        <h3>Audiobook</h3>
-                        <span class="subset-tag tag-scripted">Scripted · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/scripted/audiobook_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/scripted/audiobook_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                    <div class="sample-card">
-                        <h3>News</h3>
-                        <span class="subset-tag tag-scripted">Scripted · Chinese</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/scripted/news_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/scripted/news_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── Spontaneous ── -->
-            <div class="subcategory" id="spontaneous">
-                <h3 class="subcategory-title">Spontaneous</h3>
-                <p class="subcategory-desc">Conversational audio from podcasts, interviews, and phone calls.</p>
-                <div class="samples-grid">
-
-                    <div class="sample-card">
-                        <h3>Podcast</h3>
-                        <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/spontaneous/podcast_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/spontaneous/podcast_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                    <div class="sample-card">
-                        <h3>Interview</h3>
-                        <span class="subset-tag tag-spontaneous">Spontaneous · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/spontaneous/interview_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/spontaneous/interview_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                    <div class="sample-card">
-                        <h3>Phone Call</h3>
-                        <span class="subset-tag tag-spontaneous">Spontaneous · English/Chinese</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/spontaneous/phonecall_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/spontaneous/phonecall_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── Real-World ── -->
-            <div class="subcategory" id="real-world">
-                <h3 class="subcategory-title">Real-World</h3>
-                <p class="subcategory-desc">Challenging audio with background noise, reverberation, and music — from
-                    public speeches, public figures, and movie clips.</p>
-                <div class="samples-grid">
-
-                    <div class="sample-card">
-                        <h3>Movie</h3>
-                        <span class="subset-tag tag-realworld">Real-World · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/real_world/movie_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/real_world/movie_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                    <div class="sample-card">
-                        <h3>Public Speech</h3>
-                        <span class="subset-tag tag-realworld">Real-World · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/real_world/publicspeech_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/real_world/publicspeech_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                    <div class="sample-card">
-                        <h3>Public Figure</h3>
-                        <span class="subset-tag tag-realworld">Real-World · English</span>
-                        <div class="player-row">
-                            <span class="player-label label-real">Real</span>
-                            <audio controls src="audio/real_world/publicfigure_real.wav"></audio>
-                        </div>
-                        <div class="player-row">
-                            <span class="player-label label-fake">Fake</span>
-                            <audio controls src="audio/real_world/publicfigure_fake.wav"></audio>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+            <div id="speech-style-content"></div>
         </section>
 
-        <!-- ═══════════ Aspect 2: Emotional Prosody ═══════════ -->
         <section class="aspect" id="emotion">
             <h2 class="aspect-title">Emotional Prosody</h2>
             <p class="aspect-desc">Speech with clear emotional states (e.g., anger), synthesized using dedicated
                 expressive TTS models like F5TTS. <strong>Can you tell which is real?</strong></p>
             <div class="samples-grid" id="blind-test-grid">
-
                 <div class="sample-card blind-card" id="blind-a">
                     <h3>Sample A</h3>
                     <span class="subset-tag tag-emotion">Emotion · English</span>
                     <div class="player-row">
                         <span class="player-label">Listen</span>
-                        <audio controls></audio>
+                        <audio controls preload="none"></audio>
                     </div>
                 </div>
-
                 <div class="sample-card blind-card" id="blind-b">
                     <h3>Sample B</h3>
                     <span class="subset-tag tag-emotion">Emotion · English</span>
                     <div class="player-row">
                         <span class="player-label">Listen</span>
-                        <audio controls></audio>
+                        <audio controls preload="none"></audio>
                     </div>
                 </div>
-
             </div>
             <div class="blind-interact">
                 <div class="guess-btns" id="guess-btns">
@@ -640,42 +472,37 @@
             </div>
         </section>
 
-        <!-- ═══════════ Aspect 3: Acoustic Environment ═══════════ -->
         <section class="aspect" id="acoustic">
             <h2 class="aspect-title">Acoustic Environment</h2>
             <p class="aspect-desc">The same deepfake under clean vs. noisy conditions — background noise masks
                 synthetic artifacts and degrades detector performance.</p>
             <div class="samples-grid">
-
                 <div class="sample-card">
                     <h3>Clean vs. Noisy</h3>
                     <span class="subset-tag tag-acoustic">Acoustic · Deepfake</span>
                     <div class="player-row">
                         <span class="player-label label-clean">Clean</span>
-                        <audio controls src="audio/noise_clean.wav"></audio>
+                        <audio controls preload="none" src="audio/noise_clean.wav"></audio>
                     </div>
                     <div class="player-row">
                         <span class="player-label label-noisy">Noisy</span>
-                        <audio controls src="audio/noise_traffic.wav"></audio>
+                        <audio controls preload="none" src="audio/noise_traffic.wav"></audio>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- ═══════════ Aspect 4: Manipulation Type ═══════════ -->
         <section class="aspect" id="manipulation">
             <h2 class="aspect-title">Manipulation Type</h2>
             <p class="aspect-desc">Partial fakes splice a few synthetic words into real speech — a "needle in a
                 haystack" challenge for detectors.</p>
             <div class="samples-grid">
-
                 <div class="sample-card">
                     <h3>Partial Fake</h3>
                     <span class="subset-tag tag-manipulation">Partial Fake · English</span>
                     <div class="player-row">
                         <span class="player-label label-fake">Audio</span>
-                        <audio controls src="audio/partial_clip.wav"></audio>
+                        <audio controls preload="none" src="audio/partial_clip.wav"></audio>
                     </div>
                     <div class="transcript-box">
                         <div class="transcript-header">
@@ -690,7 +517,6 @@
                         </p>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -703,78 +529,250 @@
 
     <script>
         (function () {
-            // ── Exclusive playback: only one audio plays at a time ──
-            const allAudio = document.querySelectorAll('audio');
-            allAudio.forEach(a => {
-                a.addEventListener('play', () => {
-                    allAudio.forEach(other => { if (other !== a) other.pause(); });
-                    document.querySelectorAll('.sample-card').forEach(c => c.classList.remove('playing'));
-                    const card = a.closest('.sample-card');
-                    if (card) card.classList.add('playing');
-                });
-                a.addEventListener('pause', () => {
-                    const card = a.closest('.sample-card');
-                    if (card && a.paused) card.classList.remove('playing');
-                });
-                a.addEventListener('ended', () => {
-                    const card = a.closest('.sample-card');
-                    if (card) card.classList.remove('playing');
-                });
-            });
+            /* ────────────────────────────────────────────
+             *  Sample data — edit here to add/remove pairs
+             * ──────────────────────────────────────────── */
+            const speechStyles = [
+                {
+                    id: 'scripted',
+                    title: 'Scripted',
+                    desc: 'Clean, read speech from audiobooks and news broadcasts.',
+                    tag: 'Scripted',
+                    tagClass: 'tag-scripted',
+                    subsets: [
+                        {
+                            name: 'Audiobook',
+                            samples: [
+                                { real: 'audio/scripted/audiobook/audiobook_real.wav', fake: 'audio/scripted/audiobook/audiobook_fake.wav' },
+                                { real: 'audio/scripted/audiobook/audiobook_2_real.wav', fake: 'audio/scripted/audiobook/audiobook_2_fake.wav' },
+                                { real: 'audio/scripted/audiobook/audiobook_3_real.wav', fake: 'audio/scripted/audiobook/audiobook_3_fake.wav' },
+                            ]
+                        },
+                        {
+                            name: 'News',
+                            samples: [
+                                { real: 'audio/scripted/news/news_real.wav', fake: 'audio/scripted/news/news_fake.wav' },
+                                { real: 'audio/scripted/news/news_2_real.wav', fake: 'audio/scripted/news/news_2_fake.wav' },
+                                { real: 'audio/scripted/news/news_3_real.wav', fake: 'audio/scripted/news/news_3_fake.wav' },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'spontaneous',
+                    title: 'Spontaneous',
+                    desc: 'Conversational audio from podcasts, interviews, and phone calls.',
+                    tag: 'Spontaneous',
+                    tagClass: 'tag-spontaneous',
+                    subsets: [
+                        {
+                            name: 'Podcast',
+                            samples: [
+                                { real: 'audio/spontaneous/podcast/podcast_real.wav', fake: 'audio/spontaneous/podcast/podcast_fake.wav' },
+                                { real: 'audio/spontaneous/podcast/podcast_2_real.wav', fake: 'audio/spontaneous/podcast/podcast_2_fake.wav' },
+                                { real: 'audio/spontaneous/podcast/podcast_3_real.wav', fake: 'audio/spontaneous/podcast/podcast_3_fake.wav' },
+                            ]
+                        },
+                        {
+                            name: 'Interview',
+                            samples: [
+                                { real: 'audio/spontaneous/interview/interview_real.wav', fake: 'audio/spontaneous/interview/interview_fake.wav' },
+                                { real: 'audio/spontaneous/interview/interview_2_real.wav', fake: 'audio/spontaneous/interview/interview_2_fake.wav' },
+                                { real: 'audio/spontaneous/interview/interview_3_real.wav', fake: 'audio/spontaneous/interview/interview_3_fake.wav' },
+                            ]
+                        },
+                        {
+                            name: 'Phone Call',
+                            samples: [
+                                { real: 'audio/spontaneous/phonecall/phonecall_real.wav', fake: 'audio/spontaneous/phonecall/phonecall_fake.wav' },
+                                { real: 'audio/spontaneous/phonecall/phonecall_2_real.wav', fake: 'audio/spontaneous/phonecall/phonecall_2_fake.wav' },
+                                { real: 'audio/spontaneous/phonecall/phonecall_3_real.wav', fake: 'audio/spontaneous/phonecall/phonecall_3_fake.wav' },
+                                { real: 'audio/spontaneous/phonecall/phonecall_4_real.wav', fake: 'audio/spontaneous/phonecall/phonecall_4_fake.wav' },
+                                { real: 'audio/spontaneous/phonecall/phonecall_5_real.wav', fake: 'audio/spontaneous/phonecall/phonecall_5_fake.wav' },
+                            ]
+                        }
+                    ]
+                },
+                {
+                    id: 'real-world',
+                    title: 'Real-World',
+                    desc: 'Challenging audio with background noise, reverberation, and music — from movies, public speeches, and public figures.',
+                    tag: 'Real-World',
+                    tagClass: 'tag-realworld',
+                    subsets: [
+                        {
+                            name: 'Movie',
+                            samples: [
+                                { real: 'audio/real_world/movie/movie_real.wav', fake: 'audio/real_world/movie/movie_fake.wav' },
+                                { real: 'audio/real_world/movie/movie_2_real.wav', fake: 'audio/real_world/movie/movie_2_fake.wav' },
+                                { real: 'audio/real_world/movie/movie_3_real.wav', fake: 'audio/real_world/movie/movie_3_fake.wav' },
+                            ]
+                        },
+                        {
+                            name: 'Public Speech',
+                            samples: [
+                                { real: 'audio/real_world/publicspeech/publicspeech_real.wav', fake: 'audio/real_world/publicspeech/publicspeech_fake.wav' },
+                                { real: 'audio/real_world/publicspeech/publicspeech_2_real.wav', fake: 'audio/real_world/publicspeech/publicspeech_2_fake.wav' },
+                                { real: 'audio/real_world/publicspeech/publicspeech_3_real.wav', fake: 'audio/real_world/publicspeech/publicspeech_3_fake.wav' },
+                            ]
+                        },
+                        {
+                            name: 'Public Figure',
+                            samples: [
+                                { real: 'audio/real_world/publicfigure/publicfigure_real.wav', fake: 'audio/real_world/publicfigure/publicfigure_fake.wav' },
+                                { real: 'audio/real_world/publicfigure/publicfigure_2_real.wav', fake: 'audio/real_world/publicfigure/publicfigure_2_fake.wav' },
+                                { real: 'audio/real_world/publicfigure/publicfigure_3_real.wav', fake: 'audio/real_world/publicfigure/publicfigure_3_fake.wav' },
+                            ]
+                        }
+                    ]
+                }
+            ];
 
-            // ── Scroll-spy for section nav ──
-            const navLinks = document.querySelectorAll('.section-nav a');
-            const sections = document.querySelectorAll('.aspect[id]');
-            const navHeight = document.querySelector('.section-nav').offsetHeight + 16;
+            /* ────────────────────────────────────────────
+             *  Render Speech Style from data
+             * ──────────────────────────────────────────── */
+            function renderSpeechStyles(container, data) {
+                data.forEach(function (subcat) {
+                    var section = document.createElement('div');
+                    section.className = 'subcategory';
+                    section.id = subcat.id;
 
-            // Smooth scroll
-            navLinks.forEach(link => {
-                link.addEventListener('click', e => {
+                    var h3 = document.createElement('h3');
+                    h3.className = 'subcategory-title';
+                    h3.textContent = subcat.title;
+                    section.appendChild(h3);
+
+                    var desc = document.createElement('p');
+                    desc.className = 'subcategory-desc';
+                    desc.textContent = subcat.desc;
+                    section.appendChild(desc);
+
+                    subcat.subsets.forEach(function (subset) {
+                        var group = document.createElement('div');
+                        group.className = 'subset-group';
+
+                        var heading = document.createElement('h4');
+                        heading.className = 'subset-heading';
+                        heading.textContent = subset.name;
+                        group.appendChild(heading);
+
+                        var grid = document.createElement('div');
+                        grid.className = 'samples-grid';
+
+                        subset.samples.forEach(function (sample) {
+                            var tag = sample.tag || subcat.tag;
+                            var tagClass = sample.tagClass || subcat.tagClass;
+
+                            var card = document.createElement('div');
+                            card.className = 'sample-card';
+                            card.innerHTML =
+                                '<span class="subset-tag ' + tagClass + '">' + tag + '</span>' +
+                                '<div class="player-row">' +
+                                '  <span class="player-label label-real">Real</span>' +
+                                '  <audio controls preload="none" src="' + sample.real + '"></audio>' +
+                                '</div>' +
+                                '<div class="player-row">' +
+                                '  <span class="player-label label-fake">Fake</span>' +
+                                '  <audio controls preload="none" src="' + sample.fake + '"></audio>' +
+                                '</div>';
+                            grid.appendChild(card);
+                        });
+
+                        group.appendChild(grid);
+                        section.appendChild(group);
+                    });
+
+                    container.appendChild(section);
+                });
+            }
+
+            renderSpeechStyles(
+                document.getElementById('speech-style-content'),
+                speechStyles
+            );
+
+            /* ────────────────────────────────────────────
+             *  Exclusive playback — only one audio at a time
+             * ──────────────────────────────────────────── */
+            function setupExclusivePlayback() {
+                var allAudio = document.querySelectorAll('audio');
+                allAudio.forEach(function (a) {
+                    a.addEventListener('play', function () {
+                        allAudio.forEach(function (other) { if (other !== a) other.pause(); });
+                        document.querySelectorAll('.sample-card').forEach(function (c) { c.classList.remove('playing'); });
+                        var card = a.closest('.sample-card');
+                        if (card) card.classList.add('playing');
+                    });
+                    a.addEventListener('pause', function () {
+                        var card = a.closest('.sample-card');
+                        if (card && a.paused) card.classList.remove('playing');
+                    });
+                    a.addEventListener('ended', function () {
+                        var card = a.closest('.sample-card');
+                        if (card) card.classList.remove('playing');
+                    });
+                });
+            }
+            setupExclusivePlayback();
+
+            /* ────────────────────────────────────────────
+             *  Scroll-spy & smooth scroll
+             * ──────────────────────────────────────────── */
+            var navLinks = document.querySelectorAll('.section-nav a');
+            var sections = document.querySelectorAll('.aspect[id]');
+            var navHeight = document.querySelector('.section-nav').offsetHeight + 16;
+
+            navLinks.forEach(function (link) {
+                link.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
+                    var target = document.querySelector(link.getAttribute('href'));
                     if (target) window.scrollTo({ top: target.offsetTop - navHeight, behavior: 'smooth' });
                 });
             });
 
             function updateActiveNav() {
-                let current = '';
-                sections.forEach(s => {
+                var current = '';
+                sections.forEach(function (s) {
                     if (window.scrollY >= s.offsetTop - navHeight - 40) current = s.id;
                 });
-                navLinks.forEach(l => {
+                navLinks.forEach(function (l) {
                     l.classList.toggle('active', l.getAttribute('href') === '#' + current);
                 });
             }
             window.addEventListener('scroll', updateActiveNav, { passive: true });
             updateActiveNav();
 
-            // ── Scroll reveal ──
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-            }, { threshold: 0.12 });
-            document.querySelectorAll('.aspect').forEach(s => observer.observe(s));
+            /* ────────────────────────────────────────────
+             *  Scroll reveal
+             * ──────────────────────────────────────────── */
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+            }, { threshold: 0.08 });
+            document.querySelectorAll('.aspect').forEach(function (s) { observer.observe(s); });
 
-            // ── Blind test (Emotion) ──
-            const realSrc = 'audio/emotion_real.wav';
-            const fakeSrc = 'audio/emotion_fake.wav';
-            const order = Math.random() < 0.5 ? ['real', 'fake'] : ['fake', 'real'];
-            const cardA = document.getElementById('blind-a');
-            const cardB = document.getElementById('blind-b');
+            /* ────────────────────────────────────────────
+             *  Blind test (Emotional Prosody)
+             * ──────────────────────────────────────────── */
+            var realSrc = 'audio/emotion_real.wav';
+            var fakeSrc = 'audio/emotion_fake.wav';
+            var order = Math.random() < 0.5 ? ['real', 'fake'] : ['fake', 'real'];
+            var cardA = document.getElementById('blind-a');
+            var cardB = document.getElementById('blind-b');
             cardA.querySelector('audio').src = order[0] === 'real' ? realSrc : fakeSrc;
             cardB.querySelector('audio').src = order[1] === 'real' ? realSrc : fakeSrc;
-            const realIs = order[0] === 'real' ? 'a' : 'b';
+            var realIs = order[0] === 'real' ? 'a' : 'b';
 
-            document.querySelectorAll('.guess-btn').forEach(btn => {
+            document.querySelectorAll('.guess-btn').forEach(function (btn) {
                 btn.addEventListener('click', function () {
-                    const guess = this.dataset.guess;
-                    const correct = guess === realIs;
-                    document.querySelectorAll('.guess-btn').forEach(b => {
+                    var guess = this.dataset.guess;
+                    var correct = guess === realIs;
+                    document.querySelectorAll('.guess-btn').forEach(function (b) {
                         b.disabled = true;
                         if (b.dataset.guess === realIs) b.classList.add('correct');
                         else b.classList.add('wrong');
                     });
-                    const rCard = realIs === 'a' ? cardA : cardB;
-                    const fCard = realIs === 'a' ? cardB : cardA;
+                    var rCard = realIs === 'a' ? cardA : cardB;
+                    var fCard = realIs === 'a' ? cardB : cardA;
                     rCard.classList.add('revealed-real');
                     fCard.classList.add('revealed-fake');
                     rCard.querySelector('h3').textContent = (realIs === 'a' ? 'Sample A' : 'Sample B') + ' — Real';
@@ -782,16 +780,18 @@
                     rCard.querySelector('.player-label').textContent = 'Real';
                     fCard.querySelector('.player-label').textContent = 'Fake';
                     document.getElementById('blind-result').textContent = correct
-                        ? '✓ Correct! Detectors often fail on expressive emotional fakes like this.'
-                        : '✗ Wrong! The synthetic prosody is convincingly close to real anger.';
+                        ? 'Correct! Detectors often fail on expressive emotional fakes like this.'
+                        : 'Wrong! The synthetic prosody is convincingly close to real anger.';
                 });
             });
 
-            // ── Transcript reveal ──
+            /* ────────────────────────────────────────────
+             *  Transcript reveal (Partial Fake)
+             * ──────────────────────────────────────────── */
             document.getElementById('reveal-btn').addEventListener('click', function () {
-                const words = document.querySelectorAll('.synthetic-word');
-                const revealed = words[0] && words[0].classList.contains('revealed');
-                words.forEach(w => w.classList.toggle('revealed', !revealed));
+                var words = document.querySelectorAll('.synthetic-word');
+                var revealed = words[0] && words[0].classList.contains('revealed');
+                words.forEach(function (w) { w.classList.toggle('revealed', !revealed); });
                 this.textContent = revealed ? 'Reveal Synthetic Words' : 'Hide Synthetic Words';
             });
         })();
